@@ -29,9 +29,8 @@ public class Main {
                 return false;
             }
 
-            if (!map.containsKey(line[0].charAt(i))) {
-                map.put(line[0].charAt(i), line[1].charAt(i));
-            }
+            map.put(line[0].charAt(i), line[1].charAt(i));
+
         }
 
         return map.size() <= 32;
