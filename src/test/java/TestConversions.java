@@ -86,4 +86,16 @@ public class TestConversions {
         Assert.assertTrue(result);
     }
 
+    @Test
+    public void test15(){
+        boolean result = Main.conversion("абв ааа");
+        Assert.assertFalse(result);
+    }
+
+    @Test
+    public void test16(){
+        boolean result = Main.conversion("ааа ббб");
+        Assert.assertFalse(result);
+    }
+
 }
