@@ -65,7 +65,7 @@ public class TestConversions {
     @Test
     public void test11(){
         boolean result = Main.conversion("аб аа");
-        Assert.assertFalse(result);
+        Assert.assertTrue(result);
     }
 
     @Test
@@ -89,7 +89,7 @@ public class TestConversions {
     @Test
     public void test15(){
         boolean result = Main.conversion("абв ааа");
-        Assert.assertFalse(result);
+        Assert.assertTrue(result);
     }
 
     @Test

@@ -11,16 +11,7 @@ public class Main {
 
     }
 
-    public static boolean conversion(String line) {
-        if (unilateralСonversion(line)) {
-            return unilateralСonversion(new StringBuilder(line).reverse().toString());
-        } else {
-            return false;
-        }
-
-    }
-
-    public static boolean unilateralСonversion(String fullLine) {
+    public static boolean conversion(String fullLine) {
 
         String[] line = fullLine.split(" ");
 
