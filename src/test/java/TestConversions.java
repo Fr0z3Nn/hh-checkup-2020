@@ -80,4 +80,10 @@ public class TestConversions {
         Assert.assertFalse(result);
     }
 
+    @Test
+    public void test14(){
+        boolean result = Main.conversion("аабх ббвр");
+        Assert.assertTrue(result);
+    }
+
 }

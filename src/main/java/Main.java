@@ -2,7 +2,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.HashMap;
-import java.util.Map;
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -22,8 +21,9 @@ public class Main {
     }
 
     public static boolean unilateralСonversion(String fullLine){
-        int count = 33;
+
         String[] line = fullLine.split(" ");
+
         if(line[0].length() != line[1].length()){
             return false;
         }
@@ -40,26 +40,10 @@ public class Main {
 
             if(!map.containsKey(line[0].charAt(i))){
                 map.put(line[0].charAt(i),line[1].charAt(i));
-                count--;
             }
         }
 
-        if(map.size() == 1){
-            return false;
-        }
+        return map.size() != 1 && map.size() <= 32;
 
-        HashMap<Character, Character> copy = new HashMap<>(map);
-
-        for(Map.Entry<Character,Character> pair : copy.entrySet()){
-            Character key = pair.getKey();
-            Character value = pair.getValue();
-            map.remove(key,value);
-            if(map.containsKey(value)){
-                count--;
-                map.remove(value);
-            }
-        }
-
-        return count >= 0;
     }
 }
