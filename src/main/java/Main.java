@@ -38,15 +38,15 @@ public class Main {
 
         HashMap<Character, Character> copy = new HashMap<>(map);
 
-        for(Map.Entry<Character,Character> pair : copy.entrySet()){
-            map.remove(pair.getKey(),pair.getValue());
-            if(map.containsKey(pair.getValue())){
+        for(Map.Entry<Character,Character> pair : map.entrySet()){
+            copy.remove(pair.getKey(),pair.getValue());
+            if(copy.containsKey(pair.getValue())){
                 haveDuplicates = 32;
-                map.remove(pair.getValue());
+                copy.remove(pair.getValue());
             }
         }
 
-        return copy.size() <= haveDuplicates;
+        return map.size() <= haveDuplicates;
 
     }
 }
