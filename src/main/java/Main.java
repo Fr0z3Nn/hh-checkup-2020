@@ -2,6 +2,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.HashMap;
+import java.util.Map;
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -33,7 +34,19 @@ public class Main {
 
         }
 
-        return map.size() <= 32;
+        int haveDuplicates = 33;
+
+        HashMap<Character, Character> copy = new HashMap<>(map);
+
+        for(Map.Entry<Character,Character> pair : copy.entrySet()){
+            map.remove(pair.getKey(),pair.getValue());
+            if(map.containsKey(pair.getValue())){
+                haveDuplicates = 32;
+                map.remove(pair.getValue());
+            }
+        }
+
+        return copy.size() <= haveDuplicates;
 
     }
 }
