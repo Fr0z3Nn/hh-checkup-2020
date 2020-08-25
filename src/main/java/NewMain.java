@@ -30,7 +30,7 @@ public class NewMain {
                             break;
 
                         }
-                        if( j == alphabet.length - 1){
+                        if( j == alphabet.length - 2){
                             have = false;
                         }
                     }
