@@ -43,7 +43,7 @@ public class Main {
             }
         }
 
-        return map.size() != 1 && map.size() <= 32;
+        return map.size() <= 32;
 
     }
 }
