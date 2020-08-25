@@ -110,4 +110,9 @@ public class TestConversions {
         Assert.assertTrue(result);
     }
 
+    @Test
+    public void test19(){
+        boolean result = Main.conversion("абвгдеёжзийклмнопрстуфхцчшщъыьэюя аввгдеёжзийклмнопрстуфхцчшщъыьэюя");
+        Assert.assertTrue(result);
+    }
 }

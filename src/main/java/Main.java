@@ -34,7 +34,14 @@ public class Main {
 
         }
 
-        int haveDuplicates = 33;
+        if(map.size() == 33){
+            //XZ
+        }
+
+        return true;
+
+    }
+    /* int haveDuplicates = 33;
 
         HashMap<Character, Character> copy = new HashMap<>(map);
 
@@ -45,8 +52,17 @@ public class Main {
                 copy.remove(pair.getValue());
             }
         }
+        System.out.println(haveDuplicates);
+        return map.size() <= haveDuplicates;*/
 
-        return map.size() <= haveDuplicates;
-
-    }
+        /*HashMap<Character, Character> copy = new HashMap<>(map);
+        if(map.size() == 33){
+            for(Map.Entry<Character,Character> pair : map.entrySet()){
+                copy.remove(pair.getKey(),pair.getValue());
+                if(copy.containsKey(pair.getValue())){
+                    return false;
+                }
+            }
+            return conversion(new StringBuilder(fullLine).reverse().toString());
+        }*/
 }
