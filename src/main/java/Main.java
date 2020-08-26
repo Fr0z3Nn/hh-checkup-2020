@@ -1,68 +1,43 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        String line = reader.readLine();
-        System.out.println(conversion(line) ? 1 : 0);
 
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String line = scanner.nextLine();
+        System.out.println(isConvertible(line) ? 1 : 0);
     }
 
-    public static boolean conversion(String fullLine) {
+    public static boolean isConvertible(String line) {
+        String[] lines = line.split(" ");
+        String firstLine = lines[0];
+        String secondLine = lines[1];
 
-        String[] line = fullLine.split(" ");
+        if (firstLine.length()==secondLine.length()) {
 
-        if (line[0].length() != line[1].length()) {
-            return false;
-        }
-        if (line[0].equals(line[1])) {
-            return true;
-        }
-
-        HashMap<Character, Character> map = new HashMap<>();
-
-        for (int i = 0; i < line[0].length(); i++) {
-            if (map.containsKey(line[0].charAt(i)) && map.get(line[0].charAt(i)) != line[1].charAt(i)) {
-                return false;
+            if(firstLine.equals(secondLine)){
+                return true;
             }
 
-            map.put(line[0].charAt(i), line[1].charAt(i));
+            Map<Character, Character> map = new HashMap<>();
 
-        }
-
-        if(map.size() == 33){
-            //XZ
-        }
-
-        return true;
-
-    }
-    /* int haveDuplicates = 33;
-
-        HashMap<Character, Character> copy = new HashMap<>(map);
-
-        for(Map.Entry<Character,Character> pair : map.entrySet()){
-            copy.remove(pair.getKey(),pair.getValue());
-            if(copy.containsKey(pair.getValue())){
-                haveDuplicates = 32;
-                copy.remove(pair.getValue());
-            }
-        }
-        System.out.println(haveDuplicates);
-        return map.size() <= haveDuplicates;*/
-
-        /*HashMap<Character, Character> copy = new HashMap<>(map);
-        if(map.size() == 33){
-            for(Map.Entry<Character,Character> pair : map.entrySet()){
-                copy.remove(pair.getKey(),pair.getValue());
-                if(copy.containsKey(pair.getValue())){
+            for (int i = 0; i < firstLine.length(); i++) {
+                if (map.containsKey(firstLine.charAt(i))&&( map.get(firstLine.charAt(i)) != secondLine.charAt(i)) ) {
                     return false;
+                } else {
+                    map.put(firstLine.charAt(i), secondLine.charAt(i));
                 }
             }
-            return conversion(new StringBuilder(fullLine).reverse().toString());
-        }*/
+            return numberOfSymbols(secondLine) < 33;
+        }
+        return false;
+    }
+
+    private static int numberOfSymbols(String line) {
+        HashSet<Character> set = new HashSet<>();
+        for (int i=0; i<line.length();i++) {
+            set.add(line.charAt(i));
+        }
+        return set.size();
+    }
 }
